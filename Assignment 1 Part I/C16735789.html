@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset= utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Databases 1 Assignment #1</title>
+	<style type="text/css">
+		body{  
+				background-color: blue;
+			}
+		#main{
+			width: 60%;
+			margin: 0 auto;
+			margin-top: 40px;
+			background-color: lightgrey;	
+			text-align: justify;
+		}
+		#homeSection{
+			width: 80%;
+			margin: auto;
+			padding: 20px;
+		}
+		header{
+			text-align: center;
+			background-color: Indigo;
+		}
+		footer{
+			background-color: Indigo;
+			color: white;
+			padding: 10px;
+			text-align: center;
+		}
+		h1{
+			color: white;
+			font-size: 50px;
+			padding: 0px;
+			margin: 0px;
+			padding-top: 20px;
+
+		}
+	</style>
+
+</head> 
+
+<body>
+<div id = "main">
+	<header>
+		<h1> DATABASES 1 Assignment #1 2017/2018 </h1>
+		<hr>
+	</header>
+	
+	<section id = "content">
+		<section id = "homeSection">
+		<h2>
+			Name: Iosif Bogdan Dobos<br>
+			Student ID: C16735789<br>
+			Module: Databases 1<br>
+			Course: DT228/2 BSc In Computer Science<br>
+		</h2>
+		<h3>
+			<br>
+			<bold>Games Galore Database Design<bold>
+		</h3>
+		<hr>
+		<p>
+			A computer games shop called ‘Games Galore’ sells electronic games some of the games can run on several gaming consoles. The shop also sells gaming consoles and accessories, both generic accessories and those for specific consoles. Games Galore want to design an information system to support all the retail activities of the shop. 
+		</p>
+		<h4>
+			Games_Galore_Stock Entity
+		</h4>
+			<p>
+				This entity is created to store all the items details in shop stock, the datatype used for this entity are VARCHAR, NUMBER, INTEGER, FLOAT. There are 6 attributes datatype used for this entity. Primary key is used in this entity and constraints are used where appropiate.
+
+			<h5>
+			Attributes Datatypes
+			</h5>
+			<ul>
+				<li>stock_code number(5) PRIMARY KEY, each item stored in stock must have a unique number relating to respective item to diferentiate from other items, the data type used is NUMBER</li>
+				<li>item_type VARCHAR() this will represent the information of the item</li>
+				<li>item_description // a brief description of the item</li>
+				<li>item_qty // store how many items are available in stock</li>
+				<li>price_per_item // the price of the item </li>
+				<li>item_sell_price // the markup price that the item is sell( %10 adds on)</li>
+			</ul>
+			</p>
+
+		<h4>Game</h4>
+			<p>
+				The shop buys games, consoles and accessories from several suppliers and need to store information about each item bought in stock. The relation between game and shop stock is Many to 1. There are 3 datatype used for this entity 
+			<h5>Attributes Datatypes</h5>
+			<ul>
+				<li>game_ID NUMBER(5)< PRIMARY Key/li>
+				<li>stock_code(FK) this foreign key is link with game entity</li>
+				<li>name VARCHAR(30) </li>
+				<li>release_date DATE</li>
+				<li>console_needed VARCHAR(30)</li>
+			</ul>
+			</p>
+		<h4>Skills_Required</h4>
+			<p>
+				For each game in stock the skills need to be specified. Each game cand have different skills required to be able to play that game, for e.g(professional,beginner, intermediate, expert, etc)
+			<h5>Attributes Datatypes</h5>
+				<ul>
+					<li>skills_ID, set attribute to NUMBER(5) datatype, Set as primary key in this entity, NOT NULL</li>
+					<li>game_ID(FK), this attribute in the primary key in other entity wich are linked togheter 1 to MANY</li>
+					<li>stoke_code(FK), this attribute is the primary key in other entity </li>
+					<li>skill_required, set attribute datatype to VARCHAR(20), NOT NULL, Constraint minimum skills required to play, Set to NOT NULL </li>
+					<li>skills_description, attribute datatype VARCHAR(50), set NOT NULL</li>
+					<li></li>
+				</ul>
+			</p>
+		<h4>Age_Group</h4>
+			<p>
+				This entity is used to represent the age group required to play for a respective game. There are 5 datatype included in this entity, including a PRIMARY KEY and tow FOREIGN KEY attribute which are the primary key in two diferrent entitities.
+			<h5>Attributes Datatypes</h5>
+				<ul>
+					<li>game_ID, set attribute datatype to NUMBER(5), set to PRIMARY KEY for this entity</li>
+					<li>stock_code(FK), attribute datatype NUMBER(5), this attribute is the PRIMARY KEY in other entity</li>
+					<li><li>game_ID(FK), this attribute in the primary key in other entity and the relationship is 1 to MANY</li></li>
+					<li>age_group, set attribute datatype to VARCHAR(20), set to NOT NULL</li>
+					<li>age_description, set datatype to VARCHAR(50), set to NOT NULL, CONSTRAINTfor each group required, write a brief description</li>
+				</ul>
+			</p>
+			
+		<h4>Accessories Entity</h4>
+			<p>
+				Included for this entity are 4 different datatypes.
+			<h5>Attributes Datatypes</h5>
+				<ul>
+					<li>accessory_ID number(5) Primary Key, datatype NUMBER, this atribubute has a unique id due to PRIMARY KEY, Set NOT NULL</li>
+					<li>stock_code number(5) FK, this atribute is the primary key in other entity wich are relating togheter on the physical model</li>
+					<li>item_name VARCHAR(30), set attribute NOT NULL, this will store the accessories name</li>
+					<li>item_qty, set datatype to INTEGER, NOT NULL </li>
+					<li>description, set attribute to string VARCHAR(50), NOT NULL</li>
+					<li>item_price, set attribute to float datatype NUMBER(5,2), set NOt NULL</li>
+				</ul>
+			</p>
+		
+		<h4>Consoles Entity</h4>
+		<h5>Attributes Datatypes</h5>
+			<p>
+				<ul>
+					<li>console_ID, set attribute datatype number NUMBER(5), this attribute is the PRIMARY KEY for this entity, primary key cannot be NULL</li>
+					<li>stock_code number(5) FK, this atribute is the primary key in other entity wich are relating togheter on the physical model</li>
+					<li>console_name, datatype string VARCHAR(20)</li>
+					<li>quantity, set datatype to INTEGER, NOT NULL</li>
+					<li>console_description, set datatype to VARCHAR(50), NOT NULL</li>
+					<li>console_price, datatype float NUMBER(5,2), set to NOT NULL</li>
+				</ul>
+			</p>
+
+		<h4>Sales Representative Entity</h4>
+		<h5>Attributes Datatypes</h5>
+			<p>
+
+				<ul>
+					<li>representative_ID, datatype NUMBER(5), this attribute is the PRIMARY KEY for thi entity</li>
+					<li>stock_code(FK), datatype NUMBER(5), this attribute is the primary key in other entity, NOT NULL</li>
+					<li>name, set attribute datatype to VARCHAR(20)</li>
+					<li>email_address set datatype attribute to VARCHAR(30), set to NOT NULL, CONSTRAINT email_chk CHECK(email like '%@%)</li>
+					<li>phone_NO set attribute datatype to number NUMBER(10), set to NOT NULL</li>
+				</ul>
+			</p>
+
+		<h4>Whole Sale Suppliers</h4>
+		<h5>Attributes Datatypes</h5>
+			<p>
+				<ul>
+					<li>supplier_ID, attribute datatype NUMBER(5), set attribute as PRIMARY KEY for thin entity </li>
+					<li>company_name, set attribute datatype to VARCHAR(30), set to NOT NULL</li>
+					<li>email_address set datatype attribute to VARCHAR(30), set to NOT NULL, CONSTRAINT email_chk CHECK(email like '%@%)</li>
+					<li>phone_NO set attribute datatype to number NUMBER(10), set to NOT NULL</li>
+				</ul>
+			</p>
+
+		<h4>Supplier Order</h4>
+		<h5>Attributes Datatypes</h5>
+			<p>
+				<ul>
+					<li>order_number, attribute datatype VARCHAR(6), set attribute as PRIMARY KEY for thin entity. CONSTRAINT order_number must start with a letter folowed by 5 digits </li>
+					<li>order_qty, set attribute datatype to INTEGER, set to NOT NULL</li>
+					<li>item_ordered, set attribute datatype to VARCHAR(20), set to NOT NULL</li>
+					<li>order_date, attibute datatype set to DATE, set to NOT NULL</li>
+					<li>representative_name, set attribute datatype to VARCHAR(20)</li>
+					<li>delivery_date, attibute datatype set to DATE, set to NOT NULL</li>
+				</ul>
+			</p>
+
+		<h4>Sold Item</h4>
+		<h5>Attributes Datatypes</h5>
+			<p>
+				<ul>
+					<li>order_number, set attribute datatype VARCHAR(6), set as PRIMARY KEY for this entity</li>
+					<li>sold_date, set attribute datatype DATE, set to NOT NULL</li>
+					<li>item_ordered, attribute datatype set to NUMBER(6), set attribute to NOT NULL</li>
+					<li>order_qty, attribute datatype set to INTEGER, set attribute to NOT NULL</li>
+				</ul>
+			</p>
+
+		<h4>Reviewers</h4>
+		<h5>Attributes Datatypes</h5>
+			<p>
+				<ul>
+					<li>username, set attribute datatype VARCHAR(8), set as PRIMARY KEY for this entity</li>
+					<li>game_ID(FK) primary key in other entity </li>
+					<li>stock_code(FK) this attribute is a PRIMARY KEY in other entity</li>
+					<li>password, set attribute datatype as VARCHAR(8), set to NOT NULL</li>
+					<li>email_address, set attribute datatype VARCHAR(30), set to NOT NULL, CONSTRAINT email_address_chk CHECK(email like '%@%')</li>
+					<li>add_review, set attribute to VARCHAR(200), set to NOT NULL</li>
+				</ul>
+			</p>
+
+		<h4>Game Reviewed</h4>
+		<h5>Attributes Datatypes</h5>
+			<p>
+				<ul>
+					<li>username, set attribute datatype VARCHAR(8), set as PRIMARY KEY for this entity</li>
+					<li>password, set attribute datatype as VARCHAR(8), set to NOT NULL</li>
+					<li>email_address, set attribute datatype VARCHAR(30), set to NOT NULL, CONSTRAINT email_address_chk CHECK(email like '%@%')</li>
+					<li>game_toBe_reviewed, set attibute datype to VARCHAR(30), set to NOT NULL</li>
+					<li>review_text, attibute datatype VARCHAR(200)</li>
+					<li>review_date, attribute datatype DATE, set attribute to NOT NULL</li>
+				</ul>
+			</p>
+
+			<h3>Keys ( Primary, Foreign, Alternate ) </h3>
+			<hr>
+			<p>
+				Regarding to database design each entity must a must a have a PRIMARY KEY which is a special relation database designated to uniquey identify (unique value) and cannot contaion null values. In database each table are identified or non-udentifed from other table due to several relationship between the respective table like MANY : MANY , ONE : MANY(identified), ONE : MANY (non-undetifieed). 
+				The FOREIGN KEY basically is the PRIMARY KEY in other entity due to relantionship between repsective entities which are linked togheter trought key groups. An ALTERNATE KEY contains one or more columns whose combined values uniquely indtify every row in a table, but which is not the primary key. Each alternate key can generate a unique index or a unique constraint in database.
+			</p>
+
+			<h3>
+				Relationship (Logical and Physical)
+			</h3>
+			<hr>
+			<h4>Logical entities that are linked togheter based on their relationship</h4>
+			<p>
+				Games_Galore_Stock --- Game   :   Relationship: ONE : MANY<br>
+				Games_Galore_Stock --- Accessories   :   Relationship: ONE : MANY<br>
+				Games_Galore_Stock --- Consoles  :  Relationship: ONE : MANY<br>
+				Games_Galore_Stock --- Supplier_Order : Relationship: MANY : MANY<br>
+				Games_Galore_Stock --- Sale_Representative   :   Relationship: ONE : MANY<br>
+				Game --- Skills_Required  : Relationship: ONE : MANY<br>
+				Game --- Age_Group  : Relationship: ONE : MANY<br>
+				Game --- Reviewers : Relantionship ONE : MANY<br>
+				Reviewer --- Game_Reviewed : Relationship MANY : MANU<br>
+				Sales_Representative --- Whole_Sale_Suppliers : Relationship: MANY : MANY<br>
+				 Whole_Sale_Suppliers --- Suspplier_Order : Relationship MANY : MANY<br>
+				Sales_Representative --- Suspplier_Order : Relationship ONE : MANY (non-identifying)<br>
+			</p>
+			<h4>Physical Entities. New entities are created due to their relationship between the entite in the logical model </h4>
+			<p>
+				Games_Galore_Stock_Supliers_Order<br>
+				Reviewers_Game_Reviewed<br>
+				Whole_Sale_Suppliers_Supplier_Order<br>
+				Whole_Sale_Suppliers_Sales_Representative<br>
+			</p>
+			<h4>Constraints</h4>
+			<hr>
+			<p>
+				Constraints are added for attibutes where required. For email email address attribute contraint is to check the email address for '@' to be included in the data field. I've added a constraint in the age group entity that an age category must be added when a new stock item is added to the system. Also where unique identifiers need specific information where applicable. Constraints to check for unique order number where must have 6 characters stating with a letter followed by 5 digits).I have included NOT NULL where applicable in the entity description, as well as NULL in the fields that are relevant to the relationship of the database.
+			</p>
+
+		</section>
+	</section>
+	<footer>
+		Site created by: Iosif Dobos @ Copyright 2017
+	</footer>
+</div>
+</body>
+</html>
