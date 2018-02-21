@@ -1,0 +1,6 @@
+
+
+CREATE TABLE Sport
+{
+	code
+}
